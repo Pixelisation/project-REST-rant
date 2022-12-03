@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   })
   .catch(err => {
     console.log(err)
-    res.render('error440')
+    res.render('error404')
   })  
 })
 
@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
   })
   .catch(err => {
     console.log(err)
-    res.render('error440')
+    res.render('error404')
   })
 })
 
@@ -28,7 +28,14 @@ router.get('/new', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  res.send('GET /places/:id stub')
+  db.place.findById(req.params.id)
+  .then(place => {
+    res.render('places/show', { place })
+  })
+  .catch(err => {
+    console.log('err', err)
+    res.render('error404')
+  })
 })
 
 router.put('/:id', (req, res) => {
