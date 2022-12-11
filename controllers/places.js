@@ -2,7 +2,7 @@ const router = require('express').Router()
 const db = require('../models')
 
 router.get('/', (req, res) => {
-  db.place.find()
+  db.Place.find()
   .then((places) => {
     res.render('places/index', {places})
   })
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  db.place.create(req.body)
+  db.Place.create(req.body)
   .then(() => {
     res.redirect('/places')
   })
@@ -28,7 +28,7 @@ router.get('/new', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  db.place.findById(req.params.id)
+  db.Place.findById(req.params.id)
   .then(place => {
     res.render('places/show', { place })
   })
