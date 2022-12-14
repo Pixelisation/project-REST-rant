@@ -10,7 +10,8 @@ const placeSchema = new mongoose.Schema({
     type: Number,
     min: [1673, ' Surely your not that old?! '],
     max: [new Date().getFullYear(), 'Hey, this year is in the future!']
-  }
+  },
+  comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}]
 })
 
 module.exports = mongoose.model('place', placeSchema)
