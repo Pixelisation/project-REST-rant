@@ -49,3 +49,11 @@ main {
   background-color: white;
 }
 
+.form-check-input{
+  margin-top: 14px;
+  margin-left: 50px;
+}
+
+.form-range{
+  margin-top: 8px;
+}
